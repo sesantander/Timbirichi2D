@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class Line : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  public GameObject Inner;
+  public Vector2 _position;
+  public Vector2 Pos => _position;
 
-    // Update is called once per frame
-    void Update()
+  public void Init(Vector2 position)
+  {
+    this._position = position;
+  }
+
+  public LayerMask SquarePointLayer;
+  void Start()
+  {
+    Inner.GetComponent<SpriteRenderer>().color = Color.black;
+  }
+
+  private void OnMouseDown()
+  {
+    var colliderIncrease = new Vector2(0.1f, 0f);
+    GetComponent<CapsuleCollider2D>().size += colliderIncrease;
+
+    if (GameManager.Instance.GetGameState == GameManager.GameState.player1)
     {
-        
+      Inner.GetComponent<SpriteRenderer>().color = Color.blue;
     }
+    else
+    {
+      Inner.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+    BoardManager.Instance.SetLinePoint(this);
+  }
 }

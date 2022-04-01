@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inner: {fileID: 4454591736937171586}
+  _position: {x: 0, y: 0}
 --- !u!58 &-8642607335599107091
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,6 +143,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0013711452, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.0982576
