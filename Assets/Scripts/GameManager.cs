@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   public static GameManager Instance;
   private GameState _gameState;
   public TextMeshProUGUI Player1Score;
   public TextMeshProUGUI Player2Score;
+
 
   int player1Score = 0;
   int player2Score = 0;
@@ -54,18 +56,37 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  private void FixedUpdate()
+  {
+    int n = BoardManager.Instance.GetHeight();
+    if (player1Score + player2Score == ((n - 1) * (n - 1)))
+    {
+      if (player1Score > player2Score)
+      {
+        SceneManager.LoadScene("Player1Win");
+      }
+
+      if(player2Score > player1Score){
+        SceneManager.LoadScene("Player2Win");
+      }
+      
+      if(player1Score == player2Score)
+      {
+        SceneManager.LoadScene("Tie");
+      }
+    }
+  }
+
   public void IncreaseScore(GameState gamestate)
   {
     if (gamestate == GameState.player1)
     {
       player1Score++;
-      Debug.Log("Blue" + player1Score);
       Player1Score.text = "Player A Score: " + player1Score.ToString();
     }
     if (gamestate == GameState.player2)
     {
       player2Score++;
-      Debug.Log("Rojo " + player2Score);
       Player2Score.text = "Player B Score: " + player2Score.ToString();
     }
   }
@@ -78,5 +99,3 @@ public class GameManager : MonoBehaviour
     end
   }
 }
-
-// (n -1) * (n -1)
