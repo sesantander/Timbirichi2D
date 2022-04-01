@@ -30,13 +30,7 @@ public class ScorePoint : MonoBehaviour
         Inner.GetComponent<SpriteRenderer>().color = Color.blue;
       }
       GameManager.Instance.IncreaseScore(GameManager.Instance.GetGameState);
-      GameManager.Instance.SwitchPlayer();
+      // GameManager.Instance.SwitchPlayer();
     }
   }
-  private void OnDrawGizmos()
-  {
-    Gizmos.color = Color.red;
-    Gizmos.DrawWireSphere(new Vector2(transform.position.x, transform.position.y), 0.4f);
-  }
-
 }

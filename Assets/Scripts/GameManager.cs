@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
   {
     _gameState = gameState;
   }
+
   public GameState GetGameState => _gameState;
   public void SwitchPlayer()
   {
@@ -77,3 +78,5 @@ public class GameManager : MonoBehaviour
     end
   }
 }
+
+// (n -1) * (n -1)

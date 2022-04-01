@@ -21,8 +21,8 @@ public class Line : MonoBehaviour
 
   private void OnMouseDown()
   {
-    var shu = new Vector2(0.1f, 0f);
-    GetComponent<CapsuleCollider2D>().size += shu;
+    var colliderIncrease = new Vector2(0.1f, 0f);
+    GetComponent<CapsuleCollider2D>().size += colliderIncrease;
 
     if (GameManager.Instance.GetGameState == GameManager.GameState.player1)
     {

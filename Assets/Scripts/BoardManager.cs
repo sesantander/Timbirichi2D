@@ -17,22 +17,12 @@ public class BoardManager : MonoBehaviour
     Instance = this;
   }
 
-  public void setHeightAndWidth(int n)
-  {
-    Debug.Log(n);
-    this.Width = n;
-    this.Height = n;
-  }
-
   void Start()
   {
-    int x = PlayerPrefs.GetInt("ene");
-    Width = x;
-    Height = x;
-    Debug.Log('x' + Width);
+    int n = PlayerPrefs.GetInt("n");
+    Width = n;
+    Height = n;
     GenerateBoard();
-    
-
   }
 
   void Update()
